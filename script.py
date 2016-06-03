@@ -2,7 +2,7 @@ import os
 import re
 
 
-dictOfKeywords = {'Text':'p', 'View':'span', 'NavigatorIOS':'div', 'AppRegistry':'div', 'StyleSheet':'div',"ProgressBarAndroid":"div"}
+dictOfKeywords = {'Text':'p', 'View':'span', 'AppRegistry':'div', 'StyleSheet':'div',"ProgressBarAndroid":"div"}
 
 
 f = open("jsfilestoparse/index.ios.js").read()
@@ -29,31 +29,69 @@ m = re.findall(reg, f)
 # print("\n\nlength is : %s"%len(m))
 # print(dir(m))
 
+listchange = []
+index = -1
+
 listOfKeywordsToBeReplaced = []
 for match in m:
     m3 = re.findall(mixR, match)
-
+    index+=1
+    # print("****  %s  ***"%index)
+    
     for string in m3:   #strings in m3
         try:
           
             s = string.split("/")
             # print(s[1]) #key = s[1])
             listOfKeywordsToBeReplaced.append(s[1])
-            
+                                                              
         except:
             s = string.split(" ")
             listOfKeywordsToBeReplaced.append(s[0])
-
+    f = 0
+    fault = 1
+    for keyword in listOfKeywordsToBeReplaced:
+        if keyword in dictOfKeywords.keys():
+            fault = 0
+        else:
+            dictOfKeywords[keyword] = keyword
+            if f == 0:
+                listchange.append(index)
+                f = 1        
+            
 listOfKeywordsToBeReplaced = list(set(listOfKeywordsToBeReplaced))
 print("List of keywords to be replaced : ",listOfKeywordsToBeReplaced)
+# print(index)
+# listchange = list(set(listchange))
+# print(type(listchange))
+print(listchange)
 
+# for keyword in listOfKeywordsToBeReplaced:
+#     if keyword in dictOfKeywords.keys():
+#         print("Present")
+#     else:
+#         dictOfKeywords[keyword] = 'Comment this line '   
+    
+
+
+commentS = "/**********************************************************************************"
+commentE = "**********************************************************************************/"
+i = 0
 newM = []
 for string in m:
+            
     # print("Before conversion : ",string)
     for keyword in listOfKeywordsToBeReplaced:
         # print("keyword ",keyword, dictOfKeywords[keyword])
         string = string.replace(keyword, dictOfKeywords[keyword])
+
+    if i in listchange:
+        string = commentS+string+commentE
+
     newM.append(string)
+    i+=1
+
+
     # print("After conversion : ",string) 
 
 # print("Old M ", m)
@@ -63,9 +101,9 @@ i = 0
 
 for string in m:
     g = g.replace(string,newM[i])
-    print(string)
-    print("============================================================================================================")
-    print(newM[i])
+    # print(string)
+    # print("============================================================================================================")
+    # print(newM[i])
     i+=1       
 
 g = g.replace("$!^#@", "\n")

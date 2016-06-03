@@ -31,3 +31,29 @@ return(
 <ViewPagerAndroid>
 <WebView>
 <ProgressBarAndroid      > );
+
+return(
+<ActivityIndicatorIOS   >
+<DatePickerIOS>
+<DrawerLayoutAndroid>
+</Image   >
+</ListView >
+<MapView> 
+<Abc>
+</Det>
+);
+
+return(
+<ActivityIndicatorIOS   >
+<DatePickerIOS>
+<DrawerLayoutAndroid>
+</Image   >
+</ListView >
+<MapView> 
+<Xys>
+<Axy>
+);
+return(
+<View>
+</View>
+);

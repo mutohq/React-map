@@ -23,8 +23,6 @@ class HelloWorld extends Component {
       Hello, Bhavyanth!
       </p>
       </span>
-      
-      
 
       );
   }
@@ -32,13 +30,15 @@ class HelloWorld extends Component {
 
 class PropertyFinder extends Component {
   render() {
-    return (
-      <div style={styles.containerNav}
+    return (/**********************************************************************************
+
+      <NavigatorIOS style={styles.containerNav}
       initialRoute={{
         title: 'PropertyFinder',
         component: SearchPage,
       }}/>
-    );
+
+    **********************************************************************************/);
   }
 }
 
