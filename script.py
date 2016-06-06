@@ -28,7 +28,7 @@ reg = r"return\s*?\((.*?)\);"
 # mixR = r"<([A-Z][a-zA-Z]*\s*|/[A-Z][a-zA-Z]*\s*)"
 
 #for any case
-mixR = r"<\s*([a-zA-Z]*\s*|/\s*[a-zA-Z]*\s*)"
+mixR = r"<\s*(\s*[a-zA-Z]*\s*|/\s*[a-zA-Z]*\s*)"
 
 #Find the xml part i.e. part within return()
 m = re.findall(reg, f)
