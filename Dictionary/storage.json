@@ -1,7 +1,21 @@
-{
-    "Text": "p",
-    "View": "span",
-    "AppRegistry": "div",
-    "StyleSheet": "div",
-    "ProgressBarAndroid": "div"
-}
+[{
+        mapping_def: {
+            "Text": "p",
+            "View": "span",
+            "AppRegistry": "div",
+            "StyleSheet": "div",
+            "ProgressBarAndroid": "div"
+        },
+        mapping_from: "ios",
+        mapping_to: "web"
+    },
+
+    {
+        mapping_def: {
+            "p": "Text",
+            "span": "View",
+        },
+        mapping_from: "web",
+        mapping_to: "ios"
+    },
+]
