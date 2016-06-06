@@ -1,21 +1,53 @@
 [{
-        mapping_def: {
+        "mapping_def": {
             "Text": "p",
             "View": "span",
             "AppRegistry": "div",
             "StyleSheet": "div",
             "ProgressBarAndroid": "div"
         },
-        mapping_from: "ios",
-        mapping_to: "web"
+        "mapping_from": "ios",
+        "mapping_to": "web"
     },
 
     {
-        mapping_def: {
+        "mapping_def": {
             "p": "Text",
-            "span": "View",
+            "span": "View"
         },
-        mapping_from: "web",
-        mapping_to: "ios"
+        "mapping_from": "web",
+        "mapping_to": "ios"
     },
+
+    {
+        "mapping_def": {
+
+        },
+        "mapping_from": "android",
+        "mapping_to": "ios"
+    },
+
+    {
+        "mapping_def": {
+
+        },
+        "mapping_from": "ios",
+        "mapping_to": "android"
+    },
+
+    {
+        "mapping_def": {
+
+        },
+        "mapping_from": "web",
+        "mapping_to": "android"
+    },
+
+    {
+        "mapping_def": {
+
+        },
+        "mapping_from": "android",
+        "mapping_to": "web"
+    }
 ]
