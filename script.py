@@ -1,9 +1,16 @@
 import os
 import re
+import json
+from pprint import pprint
+
+# dictOfKeywords = {}
+
+#load the dictionary 
+with open('Dictionary/storage.json') as data_file:
+    dictOfKeywords = json.load(data_file) 
 
 
-dictOfKeywords = {'Text':'p', 'View':'span', 'AppRegistry':'div', 'StyleSheet':'div',"ProgressBarAndroid":"div"}
-
+print(dictOfKeywords)
 
 f = open("jsfilestoparse/index.ios.js").read()
 
@@ -108,6 +115,6 @@ for string in m:
 
 g = g.replace("$!^#@", "\n")
 
-newFile = open('./webFiles/indexWeb.js', 'w')
+newFile = open('./webFiles/indexWeb1.js', 'w')
 newFile.write(g)
 
