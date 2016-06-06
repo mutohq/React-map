@@ -5,11 +5,12 @@ import json
 # dictOfKeywords = {}
 
 #load the dictionary 
+
 with open('Dictionary/storage.json') as data_file:
     dictOfKeywords = json.load(data_file) 
 
 
-print(dictOfKeywords)
+# print(dictOfKeywords)
 
 f = open("jsfilestoparse/test.ios.js").read()
 
