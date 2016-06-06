@@ -1,7 +1,6 @@
 import os
 import re
 import json
-from pprint import pprint
 
 # dictOfKeywords = {}
 
@@ -12,7 +11,7 @@ with open('Dictionary/storage.json') as data_file:
 
 print(dictOfKeywords)
 
-f = open("jsfilestoparse/index.ios.js").read()
+f = open("jsfilestoparse/test.ios.js").read()
 
 f = f.replace("\n", "$!^#@")
 
@@ -26,8 +25,10 @@ reg = r"return\s*?\((.*?)\);"
 # r1 = r"</[A-Z][a-z]+[A-Z]*[a-z]*\s*>"
 
 #regex to find Components 
-mixR = r"<([A-Z][a-zA-Z]*\s*|/[A-Z][a-zA-Z]*\s*)"
+# mixR = r"<([A-Z][a-zA-Z]*\s*|/[A-Z][a-zA-Z]*\s*)"
 
+#for any case
+mixR = r"<\s*([a-zA-Z]*\s*|/\s*[a-zA-Z]*\s*)"
 
 #Find the xml part i.e. part within return()
 m = re.findall(reg, f)
@@ -115,6 +116,6 @@ for string in m:
 
 g = g.replace("$!^#@", "\n")
 
-newFile = open('./webFiles/indexWeb1.js', 'w')
+newFile = open('./webFiles/testweb.js', 'w')
 newFile.write(g)
 
