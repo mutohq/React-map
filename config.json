@@ -5,37 +5,45 @@
             "input_path": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/ios",
             "input_file_regex": "*.ios.js",
             "output_path": [{
-                "web": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/web",
-                "output_file_regex": ".web.js"
+                "destination": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/web",
+                "output_file_regex": ".web.js",
+                "dest_platform": "web"
             }, {
-                "android": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/android",
-                "output_file_regex": ".android.js"
-            }]
+                "destination": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/android",
+                "output_file_regex": ".android.js",
+                "dest_platform": "android"
+            }],
+            "source_platform": "ios"
         },
 
         {
             "input_path": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/web",
             "input_file_regex": "*.web.js",
             "output_path": [{
-                "android": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/android",
-                "output_file_regex": ".android.js"
+                "destination": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/android",
+                "output_file_regex": ".android.js",
+                "dest_platform": "android"
             }, {
-                "ios": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/ios",
-                "output_file_regex": ".ios.js"
-            }]
+                "destination": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/ios",
+                "output_file_regex": ".ios.js",
+                "dest_platform": "ios"
+            }],
+            "source_platform": "web"
         },
 
         {
             "input_path": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/android",
             "input_file_regex": "*.android.js",
             "output_path": [{
-                "android": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/web",
-                "output_file_regex": ".android.js"
+                "destination": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/web",
+                "output_file_regex": ".android.js",
+                "dest_platform": "web"
             }, {
-                "ios": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/ios",
-                "output_file_regex": ".ios.js"
-            }]
-
+                "destination": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/ios",
+                "output_file_regex": ".ios.js",
+                "dest_platform": "ios"
+            }],
+            "source_platform": "android"
         }
     ],
     "mapping": "/home/ashu/Desktop/intern/git/React-map/Dictionary/storage.json",
