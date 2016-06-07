@@ -6,10 +6,10 @@
             "input_file_regex": "*.ios.js",
             "output_path": [{
                 "web": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/web",
-                "output_file_regex": "*.web.js"
+                "output_file_regex": ".web.js"
             }, {
                 "android": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/android",
-                "output_file_regex": "*.android.js"
+                "output_file_regex": ".android.js"
             }]
         },
 
@@ -18,10 +18,10 @@
             "input_file_regex": "*.web.js",
             "output_path": [{
                 "android": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/android",
-                "output_file_regex": "*.android.js"
+                "output_file_regex": ".android.js"
             }, {
                 "ios": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/ios",
-                "output_file_regex": "*.ios.js"
+                "output_file_regex": ".ios.js"
             }]
         },
 
@@ -30,10 +30,10 @@
             "input_file_regex": "*.android.js",
             "output_path": [{
                 "android": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/web",
-                "output_file_regex": "*.android.js"
+                "output_file_regex": ".android.js"
             }, {
                 "ios": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/ios",
-                "output_file_regex": "*.ios.js"
+                "output_file_regex": ".ios.js"
             }]
 
         }
