@@ -4,7 +4,8 @@
             "View": "span",
             "AppRegistry": "div",
             "StyleSheet": "div",
-            "ProgressBarAndroid": "div"
+            "ProgressBarAndroid": "div",
+            "NavigatorIOS": "div"
         },
         "mapping_from": "ios",
         "mapping_to": "web"
