@@ -2,42 +2,42 @@
     "paths": [
 
         {
-            "input_path": "$GOPATH/git/React-map/jsfilestoparse/ios",
+            "input_path": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/ios",
             "input_file_regex": "*.ios.js",
             "output_path": [{
-                "web": "$GOPATH/git/React-map/jsfilestoparse/web",
+                "web": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/web",
                 "output_file_regex": "*.web.js"
             }, {
-                "android": "$GOPATH/git/React-map/jsfilestoparse/android",
+                "android": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/android",
                 "output_file_regex": "*.android.js"
             }]
         },
 
         {
-            "input": "$GOPATH/git/React-map/jsfilestoparse/web",
+            "input_path": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/web",
             "input_file_regex": "*.web.js",
-            "output": [{
-                "android": "$GOPATH/git/React-map/jsfilestoparse/android",
+            "output_path": [{
+                "android": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/android",
                 "output_file_regex": "*.android.js"
             }, {
-                "ios": "$GOPATH/git/React-map/jsfilestoparse/ios",
+                "ios": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/ios",
                 "output_file_regex": "*.ios.js"
             }]
         },
 
         {
-            "input": "$GOPATH/git/React-map/jsfilestoparse/android",
+            "input_path": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/android",
             "input_file_regex": "*.android.js",
-            "output": [{
-                "android": "$GOPATH/git/React-map/jsfilestoparse/web",
+            "output_path": [{
+                "android": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/web",
                 "output_file_regex": "*.android.js"
             }, {
-                "ios": "$GOPATH/git/React-map/jsfilestoparse/ios",
+                "ios": "/home/ashu/Desktop/intern/git/React-map/jsfilestoparse/ios",
                 "output_file_regex": "*.ios.js"
             }]
 
         }
     ],
-    "mapping": "$GOPATH/git/React-map/Dictionary/storage.json",
+    "mapping": "/home/ashu/Desktop/intern/git/React-map/Dictionary/storage.json",
     "mapping_from": "ios"
 }
