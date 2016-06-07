@@ -1,10 +1,22 @@
 import os
 import re
 import json
+import argparse
+import sys
+from pprint import pprint
 
 # dictOfKeywords = {}
 
 #load the dictionary 
+x = sys.argv[1]
+
+with open(x) as config_file:
+    config_file_data = json.load(config_file)
+
+print(config_file_data)
+
+# if read_config_file["mapping_from"] == "ios":
+    # print("done") 
 
 with open('Dictionary/storage.json') as data_file:
     dictOfKeywords = json.load(data_file) 
