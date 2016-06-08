@@ -9,7 +9,7 @@ f = f.replace ("\n","$!^#@")
 
 g = f
 
-dictOfkeywords = {'View':'p', 'Text':'span', 'Nav':'xyz'}
+dictOfkeywords = {'View':'p',  'Nav':'xyz'}
 
 reg = r"return\s*?\((.*?)\);" 
 # rex = r"(<\([A-Za-z]+\).*>)|(<\(/[A-Za-z]+\).*>)|(<\([A-Za-z]+\).*/>)"
@@ -19,8 +19,10 @@ matchreg = re.findall(reg, f)
 # print(matchreg)
 
 for eachmatchreg in matchreg:
-    tempmatchreg = eachmatchreg #operate on tempmatchreg and change it and replace eachmatchreg by tempmatchreg in g as g = g.replace(eachmatchreg, tempmatchreg)
-
+    tempmatchreg = eachmatchreg 
+    #operate on tempmatchreg and change it and replace eachmatchreg by tempmatchreg in g as 
+    # g = g.replace(eachmatchreg, tempmatchreg)
+    # tempmatchreg = tempmatchreg.replace(eachangularreg, tempangularreg)
     #find all expressions within angular bracket 
     angularreg = re.findall(rex, tempmatchreg)
 
@@ -32,6 +34,7 @@ for eachmatchreg in matchreg:
         keywordclosereg = re.findall(regxmlnot, tempangularreg)
         lengthkeywordclosereg = len(keywordclosereg)
         f = 0
+        f1 = 0
         if lengthkeywordclosereg != 0:
             f = 1
             for eachkeywordclosereg in keywordclosereg:
@@ -48,51 +51,29 @@ for eachmatchreg in matchreg:
                     tempkeywordclosereg = "/*" + tempkeywordclosereg + "*/"
                     # print(tempkeywordclosereg)
                 tempangularreg = tempangularreg.replace(eachkeywordclosereg, tempkeywordclosereg)
-            print(tempangularreg)
+            # print(tempangularreg)
         if f != 1:
-           print(eachangularreg)
-                            
-# for match in m:
-#     tempmatch = match
-#     # match = match.replace("$!^#@","\n") 
-#     # print(match)
-#     n = re.findall(rex, match)
-#     newN = []
-#     # print(n)
-#     for string in n:
-#         tempstring = string
-#         # print("-----")
-#         # print(string)
-#         # print("-----")
-#         regexs = re.findall(regxmlnot, string)
-#         newregexs = []
-#         lengthregexs = len(regexs)
-#         f = 0
-#         if lengthregexs != 0:
-#             f = 1
-#             for singleregexs in regexs:
-#                 tempsingleregexs = singleregexs
-#                 seperateopen = singleregexs.split("<")
-#                 # print(seperateopen[1])
-#                 sepcheckkey = seperateopen[1].split(" ")
-#                 checkforkey = sepcheckkey[0]
-#                 # print(checkforkey)
-                
-#                 if checkforkey in dictOfkeywords.keys():
-#                     singleregexs = singleregexs.replace(checkforkey,dictOfkeywords[checkforkey])
-#                 else:
-#                     singleregexs = "/*" + singleregexs + "*/"    
-#                 # print(singleregexs)
-#                 newregexs.append(singleregexs)            
-#                 print(regexs,newregexs)
-#                 string = string.replace(tempsingleregexs,singleregexs)
-            
-#             # print(newregexs)
-#         if f != 1:
-#             tempprocess = string
-#             print(string[1])
+        #    print(eachangularreg)
+            temp = eachangularreg
+            regexp = re.findall(r"<([a-zA-Z]+|/[a-zA-Z]+)",temp)
+            s = regexp[0]
+            if s[0] == "/":
+                s1 = s[1:]
+                if s1 in dictOfkeywords.keys():
+                    temp = temp.replace(s1,dictOfkeywords[s1])
+                else:
+                    temp = temp + "*/"
+            else:
+                if s in dictOfkeywords.keys():
+                    temp = temp.replace(s,dictOfkeywords[s])
+                else:
+                    temp = "/*" + temp
+            tempangularreg = tempangularreg.replace(eachangularreg,temp)
+            # print(tempangularreg)    
+            # print(type(regexp[0]))
+            # print(regexp[0])
+        tempmatchreg = tempmatchreg.replace(eachangularreg, tempangularreg)
+    g = g.replace(eachmatchreg,tempmatchreg)
 
-#             # print(string)
-#     print("****************")
-# g = g.replace("$!^#@", "\n")
-
+g = g.replace("$!^#@", "\n")
+print(g)
