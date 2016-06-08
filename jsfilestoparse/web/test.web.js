@@ -1,33 +1,33 @@
-return(/**********************************************************************************
+return(
 <ActivityIndicatorIOS   >
 <DatePickerIOS>
 <DrawerLayoutAndroid>
 </Image   >
-</Listspan >
-<Mapspan>
+</ListView >
+<MapView>
 <Modal>
 <Navigator>
-<div>
+<NavigatorIOS>
 <PickerIOS>
 </Picker>
-<div>
-<ProgressspanIOS>
+<ProgressBarAndroid>
+<ProgressViewIOS>
 <RefreshControl>
-<Scrollspan>
+<ScrollView>
 <SegmentedControlIOS>
 <Slider>
 <SliderIOS>
 <StatusBar>
 </Switch>
 </TabBarIOS>
-<p>
-</pInput>
+<Text>
+</TextInput>
 <ToolbarAndroid>
 <TouchableHighlight>
 <TouchableNativeFeedback>
 <TouchableOpacity>
 <TouchableWithoutFeedback>
-<span>
-<spanPagerAndroid>
-<Webspan>
-<div      > **********************************************************************************/);
+<View>
+<ViewPagerAndroid>
+<WebView>
+<ProgressBarAndroid      > );
