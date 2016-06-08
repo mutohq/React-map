@@ -22,7 +22,11 @@ class HelloWorld extends Component {
             <Text style={styles.name}>
             Hello, Bhavyanth!
             </Text> </View>
-
+			<TouchableHighlight style={styles.button}
+            onPress={this.onSearchPressed.bind(this)}
+            underlayColor='#99d9f4'>
+          <View style={styles.buttonp}>Go</View>
+        </TouchableHighlight>
 
 
         );
