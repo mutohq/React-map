@@ -3,13 +3,13 @@ import re
 import json
 import xml.etree.ElementTree as ET
 
-f = open('jsfilestoparse/ios/index.ios.js').read()
+f = open('jsfilestoparse/ios/SearchPage.ios.js').read()
 
 f = f.replace ("\n","$!^#@")
 
 g = f
 
-dictOfkeywords = {'View':'p',  'Nav':'xyz'}
+dictOfkeywords = {'View':'p',  'Nav':'xyz', 'Text':'span'}
 
 reg = r"return\s*?\((.*?)\);" 
 # rex = r"(<\([A-Za-z]+\).*>)|(<\(/[A-Za-z]+\).*>)|(<\([A-Za-z]+\).*/>)"
@@ -61,19 +61,25 @@ for eachmatchreg in matchreg:
                 s1 = s[1:]
                 if s1 in dictOfkeywords.keys():
                     temp = temp.replace(s1,dictOfkeywords[s1])
+                    # print(temp)
                 else:
+                    # print(temp)
                     temp = temp + "*/"
+                    print(temp)
             else:
                 if s in dictOfkeywords.keys():
                     temp = temp.replace(s,dictOfkeywords[s])
+                    # print(temp)
                 else:
                     temp = "/*" + temp
+                    # print(temp)
             tempangularreg = tempangularreg.replace(eachangularreg,temp)
             # print(tempangularreg)    
             # print(type(regexp[0]))
             # print(regexp[0])
         tempmatchreg = tempmatchreg.replace(eachangularreg, tempangularreg)
+        # print(tempmatchreg)
     g = g.replace(eachmatchreg,tempmatchreg)
 
 g = g.replace("$!^#@", "\n")
-print(g)
+# print(g)
