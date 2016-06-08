@@ -85,76 +85,69 @@ for files in filesToBeParsed:
 
         #regex to find return();
         reg = r"return\s*?\((.*?)\);"        
+        # rex = r"(<\([A-Za-z]+\).*>)|(<\(/[A-Za-z]+\).*>)|(<\([A-Za-z]+\).*/>)"
+        rex = r"(<[a-zA-Z]+.*?>+|</[a-zA-Z]+.*?>)"
+        regxmlnot = r"<[a-zA-Z]+.*?/>"
+        matchreg = re.findall(reg, f)
+        # print(matchreg)
+        for eachmatchreg in matchreg:
+            tempmatchreg = eachmatchreg 
+            #operate on tempmatchreg and change it and replace eachmatchreg by tempmatchreg in g as 
+            # g = g.replace(eachmatchreg, tempmatchreg)
+            # tempmatchreg = tempmatchreg.replace(eachangularreg, tempangularreg)
+            #find all expressions within angular bracket 
+            angularreg = re.findall(rex, tempmatchreg)
+            
+            
+            #operate on <.*>
+            for eachangularreg in angularreg:
+                tempangularreg = eachangularreg #tempmatchreg = tempmatchreg.replace(eachangularreg, tempangularreg) 
+                
+                #find <keyword.*/> and if keyword is in dictionary replace it otherwise /*<keyword.*/>*/ 
+                keywordclosereg = re.findall(regxmlnot, tempangularreg)
+                lengthkeywordclosereg = len(keywordclosereg)
+                f = 0
+                if lengthkeywordclosereg != 0:
+                    f = 1
+                    for eachkeywordclosereg in keywordclosereg:
+                        tempkeywordclosereg = eachkeywordclosereg
+                        seperateatopen = tempkeywordclosereg.split("<")
+                        # print(seperateatopen[1])
+                        sepcheckkey = seperateatopen[1].split(" ")
+                        checkforkey = sepcheckkey[0]
+                        # print(checkforkey)
+                        if checkforkey in dictOfKeywords.keys():
+                            tempkeywordclosereg = tempkeywordclosereg.replace(checkforkey, dictOfKeywords[checkforkey])
+                            # print(tempkeywordclosereg)
+                        else:
+                            tempkeywordclosereg = "/*" + tempkeywordclosereg + "*/"
+                            # print(tempkeywordclosereg)
+                        tempangularreg = tempangularreg.replace(eachkeywordclosereg, tempkeywordclosereg)
+                    # print(tempangularreg)
+                if f != 1:
+                    # print(eachangularreg)
+                    temp = eachangularreg
+                    regexp = re.findall(r"<([a-zA-Z]+|/[a-zA-Z]+)",temp)
+                    s = regexp[0]
+                    if s[0] == "/":
+                        s1 = s[1:]
+                        if s1 in dictOfKeywords.keys():
+                            temp = temp.replace(s1,dictOfKeywords[s1])
+                        else:
+                            temp = temp + "*/"
+                    else:
+                        if s in dictOfKeywords.keys():
+                            temp = temp.replace(s,dictOfKeywords[s])
+                        else:
+                            temp = "/*" + temp
+                    tempangularreg = tempangularreg.replace(eachangularreg,temp)
+                    # print(tempangularreg)
+                    # print(type(regexp[0]))
+                    # print(regexp[0])
+                tempmatchreg = tempmatchreg.replace(eachangularreg, tempangularreg)
+            g = g.replace(eachmatchreg,tempmatchreg)
+
         
-        #for any case
-        mixR = r"<([a-zA-Z]+\s*|/[a-zA-Z]+\s*)"
-        
-        #Find the xml part i.e. part within return()
-        m = re.findall(reg, f)
-        # print(m)
-        # print("\n\nlength is : %s"%len(m))
-        # print(dir(m))
-
-        listchange = []
-        index = -1
-
-        listOfKeywordsToBeReplaced = []
-        for match in m:
-            m3 = re.findall(mixR, match)
-            index+=1
-            # print("****  %s  ***"%index)
-
-            for string in m3:   #strings in m3
-                try:
-                    s = string.split("/")
-                    print(s[1]) #key = s[1])
-                    listOfKeywordsToBeReplaced.append(s[1])
-                except:
-                    s = string.split(" ")
-                    listOfKeywordsToBeReplaced.append(s[0])
-                    print(s[0])
-            f = 0
-            fault = 1
-            for keyword in listOfKeywordsToBeReplaced:
-                if keyword in dictOfKeywords.keys():
-                    fault = 0
-                else:
-                    dictOfKeywords[keyword] = keyword
-                    if f == 0:
-                        listchange.append(index)
-                        f = 1
-        listOfKeywordsToBeReplaced = list(set(listOfKeywordsToBeReplaced))
-        # print("List of keywords to be replaced : ",listOfKeywordsToBeReplaced)
-        # print(index)
-        # listchange = list(set(listchange))
-        # print(type(listchange))
-        print(listchange)
-        commentS = "/**********************************************************************************"
-        commentE = "**********************************************************************************/"
-        i = 0
-        newM = []
-        for string in m:
-            # print("Before conversion : ",string)
-            for keyword in listOfKeywordsToBeReplaced:
-                # print("keyword ",keyword, dictOfKeywords[keyword])
-                string = string.replace(keyword, dictOfKeywords[keyword])
-            if i in listchange:
-                string = commentS+string+commentE
-
-            newM.append(string)
-            i+=1
-            # print("After conversion : ",string)
-        i = 0
-        for string in m:
-            g = g.replace(string,newM[i])
-            # print(string)
-            # print("============================================================================================================")
-            # print(newM[i])
-            i+=1
         g = g.replace("$!^#@", "\n")
         newFile = open(AbsolutePathtowrite,'w')
         newFile.write(g)
-
-
-
-            
