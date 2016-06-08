@@ -1,4 +1,4 @@
-return(/**********************************************************************************
+return(
 <ActivityIndicatorIOS   >
 <DatePickerIOS>
 <DrawerLayoutAndroid>
@@ -30,4 +30,4 @@ return(/************************************************************************
 <View>
 <ViewPagerAndroid>
 <WebView>
-<ProgressBarAndroid      > **********************************************************************************/);
+<ProgressBarAndroid      > );

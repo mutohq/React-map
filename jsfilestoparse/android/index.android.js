@@ -17,7 +17,7 @@ var SearchPage = require('./SearchPage');
 // Class App
 class HelloWorld extends Component {
   render(){
-    return(/**********************************************************************************
+    return(
       <View style={styles.container}>
       <Text style={styles.name}>
       Hello, Bhavyanth!
@@ -26,19 +26,19 @@ class HelloWorld extends Component {
       
       
 
-      **********************************************************************************/);
+      );
   }
 }
 
 class PropertyFinder extends Component {
   render() {
-    return (/**********************************************************************************
+    return (
       <NavigatorIOS style={styles.containerNav}
       initialRoute={{
         title: 'PropertyFinder',
         component: SearchPage,
       }}/>
-    **********************************************************************************/);
+    );
   }
 }
 
